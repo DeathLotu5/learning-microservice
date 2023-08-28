@@ -1,0 +1,32 @@
+domain:
+  default:
+    eureka: http://localhost:8888/eureka
+
+server:
+  port: 8082
+spring:
+  application:
+    name: api-gateway
+
+  #Kích ho?t tính n?ng Discovery Locator, tính n?ng này s? t? ??ng map và route Http request ??n các destination
+  #Các request ?ó ???c g?i ??n các service d?a theo application name c?a chính nó
+  cloud:
+    gateway:
+      routes:
+        - id: user-status-check #Mô t? Web Service Endpoint mà ta mu?n request ???c chuy?n h??ng.
+          uri: lb://user-ws #Nó có th? là IP Address c?a service. Nh?ng do ta ?ang ?? port là random nên s? dùng cách này.
+          predicates: #Precates này gi?ng nh? if trong java.Check ?i?u ki?n
+            - Path=/users-ws/users/status/check
+#            - Method=GET, POST, PUT, DELETE #N?u nh? ta mu?n s? d?ng nhi?u HTTP method
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/users-ws/(?<segment>.*), /$\{segment}
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: ${domain.default.eureka}

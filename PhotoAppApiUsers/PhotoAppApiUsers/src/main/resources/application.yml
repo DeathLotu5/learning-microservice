@@ -1,0 +1,25 @@
+domain:
+  default:
+    eureka: http://localhost:8888/eureka
+    ipAddress: 192.168.2.10
+
+server:
+  port: 0
+spring:
+  application:
+    name: user-ws
+  devtools:
+    restart:
+      enabled: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${domain.default.eureka}
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

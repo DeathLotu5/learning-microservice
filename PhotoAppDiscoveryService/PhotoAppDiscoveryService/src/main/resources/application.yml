@@ -1,0 +1,29 @@
+#server
+#.port=9999
+#spring.application.name=discoveryservice
+
+#?ây là tên c?a Eureka ?? các service khác giao ti?p v?i Eureka Server
+#eureka.instance.hostname=localhost
+
+#?? li?t kê các application t? các Eureka Server khác hay không
+#eureka.client.registerWithEureka=false
+
+#?ây là URL c?a Eureka Server, ?ng d?ng s? ??ng kí và khám phá các service
+#B?i vì ?ây là Eureka Server chính, b?n s? c?n thi?t l?p ?L c?a chính nó
+#n?u b?n có nhi?u Eureka Server, ta có th? dùng URL này cho các Eureka Server khác
+#eureka.client.serviceUrl.defaultZone=http://${eureka.instance.hostname}:${server.port}/eureka
+
+server:
+  port: 8888
+
+spring:
+  application:
+    name: discoveryService
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka

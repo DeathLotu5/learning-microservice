@@ -1,0 +1,17 @@
+domain:
+  default:
+    eureka: http://localhost:8888/eureka
+
+server:
+  port: 0
+spring:
+  devtools:
+    restart:
+      enabled: true
+  application:
+    name: account-ws
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${domain.default.eureka}
