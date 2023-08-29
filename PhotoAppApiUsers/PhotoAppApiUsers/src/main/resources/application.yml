@@ -1,7 +1,11 @@
 domain:
   default:
     eureka: http://localhost:8888/eureka
-    ipAddress: 192.168.2.10
+    ipAddress: 10.164.178.61
+
+token:
+  expirationTime: 3600000
+  secretKey: asdfasdghgfhjxcvbxaqwetreyi456tuxcvxnvxxaa
 
 server:
   port: 0
