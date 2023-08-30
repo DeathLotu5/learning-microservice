@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: CONFIG-SERVER
+
+server:
+  port: 8012

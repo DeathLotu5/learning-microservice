@@ -1,7 +1,7 @@
 domain:
   default:
     eureka: http://localhost:8888/eureka
-    ipAddress: 192.168.1.7
+    ipAddress: http://g07vnxdfvltti27.g07.fujitsu.local
 
 token:
   expirationTime: 3600000

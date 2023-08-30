@@ -35,8 +35,10 @@ public class WebSecurity {
 
         http.csrf(AbstractHttpConfigurer::disable);
         http.authorizeHttpRequests(auth -> auth
-                        .requestMatchers(new AntPathRequestMatcher("/users", HttpMethod.POST.toString())).access(
-                                new WebExpressionAuthorizationManager("hasIpAddress('"+ environment.getProperty("domain.default.ipAddress") +"')"))
+                        .requestMatchers(new AntPathRequestMatcher("/users", HttpMethod.POST.toString()))
+                        .access(new WebExpressionAuthorizationManager(
+                                "hasIpAddress('"+ environment.getProperty("domain.default.ipAddress") +"')"
+                        ))
                         .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll())
 //                .authenticationManager(authenticationManager)
                 .sessionManagement(sess -> sess
