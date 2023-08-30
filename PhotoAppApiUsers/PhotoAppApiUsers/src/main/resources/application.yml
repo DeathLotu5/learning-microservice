@@ -1,7 +1,7 @@
 domain:
   default:
     eureka: http://localhost:8888/eureka
-    ipAddress: 10.164.178.61
+    ipAddress: 192.168.1.7
 
 token:
   expirationTime: 3600000
@@ -11,7 +11,7 @@ server:
   port: 0
 spring:
   application:
-    name: user-ws
+    name: users-ws
   devtools:
     restart:
       enabled: true
